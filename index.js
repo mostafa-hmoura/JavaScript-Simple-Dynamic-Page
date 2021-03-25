@@ -9,7 +9,7 @@ const users = [
             img: "https://randomuser.me/api/portraits/men/75.jpg",
             text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit" 
                 +" At repudiandae facilis distinctio ut sit maiores dolorum "
-                +"neque. Dolores, exercitationem ullam."
+                +"neque. Dolores, exercitationem ullam."    
         },
         {
             id: 1,
@@ -18,7 +18,7 @@ const users = [
             img: "https://randomuser.me/api/portraits/women/74.jpg",
             text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit" 
                   +" At repudiandae facilis distinctio ut sit maiores dolorum "
-                  +"neque. Dolores, exercitationem ullam."
+                  +"neque. Dolores, exercitationem ullam."  
         },
         {
             id: 2,
@@ -27,7 +27,7 @@ const users = [
             img: "https://randomuser.me/api/portraits/men/83.jpg",
             text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit" 
                   +" At repudiandae facilis distinctio ut sit maiores dolorum "
-                  +"neque. Dolores, exercitationem ullam."
+                  +"neque. Dolores, exercitationem ullam."        
         },
         {
             id: 3,
@@ -36,7 +36,7 @@ const users = [
             img: "https://randomuser.me/api/portraits/men/86.jpg",
             text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit" 
                   +" At repudiandae facilis distinctio ut sit maiores dolorum "
-                  +"neque. Dolores, exercitationem ullam."
+                  +"neque. Dolores, exercitationem ullam."        
         },
         {
             id: 4,
@@ -45,9 +45,11 @@ const users = [
             img: "https://randomuser.me/api/portraits/men/18.jpg",
             text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit" 
                   +" At repudiandae facilis distinctio ut sit maiores dolorum "
-                  +"neque. Dolores, exercitationem ullam."
+                  +"neque. Dolores, exercitationem ullam."        
         }
 ];
+
+
 
 // select items 
 
@@ -57,6 +59,22 @@ const job = document.getElementById('job');
 const info = document.getElementById('info');
 const btn = document.querySelectorAll('button');
 
+// get number betwen a and b
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
+
+// get random color 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }  
 // set starting item
 
 let currentItem = 0;
@@ -67,14 +85,10 @@ const showItem = (N) =>{
     author.textContent = item.name;
     job.textContent = item.job;
     info.textContent = item.text;
+    var back = `color : ${getRandomColor()}`;
+    info.setAttribute('style',back)
 }
 
-// get number betwen a and b
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-  }
 
   // onclik on button
 const btnClick = (e) => {
